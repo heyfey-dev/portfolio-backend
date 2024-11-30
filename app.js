@@ -10,12 +10,18 @@ const port = process.env.PORT || 5000;
 
 // Create HTTP server from Express app
 const server = require("http").Server(app);
+// CORS Configuration
+const corsOptions = {
+    origin: "https://recenttest.netlify.app/", // Replace with your frontend domain
+    methods: ["GET", "POST"], // Allow GET and POST requests
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow headers
+  };
 
 // Initialize Socket.io with the server
 const io = socketIo(server);
 
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions))
 app.use(express.json());
 
 // Connect to MongoDB
