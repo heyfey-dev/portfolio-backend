@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const socketIo = require("socket.io");
-const { sequelize } = require("./Models");
+
 require("dotenv").config();
 
 const app = express();
@@ -47,8 +47,7 @@ io.on("connection", (socket) => {
 });
 
 // Sync Sequelize and start the server
-sequelize.sync().then(() => {
-  server.listen(port, () => {
+// Start the server
+server.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
   });
-});
