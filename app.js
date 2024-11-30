@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const socketIo = require("socket.io");
-const { sequelize } = require("./models");
+const { sequelize } = require("./Models");
 require("dotenv").config();
 
 const app = express();
