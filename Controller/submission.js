@@ -40,11 +40,13 @@ exports.updateSubmission = async (req, res) => {
 
 // Delete a submission
 exports.deleteSubmission = async (req, res) => {
-  try {
-    const deletedSubmission = await Submission.findByIdAndDelete(req.params.id);
-    if (!deletedSubmission) return res.status(404).json({ message: "Submission not found" });
-    res.status(200).json({ message: "Submission deleted" });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
+    console.log("Deleting submission with ID:", req.params.id); // Log the incoming ID
+    try {
+      const deletedSubmission = await Submission.findByIdAndDelete(req.params.id);
+      if (!deletedSubmission) return res.status(404).json({ message: "Submission not found" });
+      res.status(200).json({ message: "Submission deleted" });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+  
