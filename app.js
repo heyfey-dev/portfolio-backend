@@ -12,7 +12,7 @@ const port = process.env.PORT || 5000;
 const server = require("http").Server(app);
 // CORS Configuration
 const corsOptions = {
-    origin: "https://recenttest.netlify.app/", // Replace with your frontend domain
+    origin: "https://recenttest.netlify.app", // Replace with your frontend domain
     methods: ["GET", "POST"], // Allow GET and POST requests
     allowedHeaders: ["Content-Type", "Authorization"], // Allow headers
   };
